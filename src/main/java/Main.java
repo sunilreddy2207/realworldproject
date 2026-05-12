@@ -1,136 +1,73 @@
 
+import java.time.LocalTime;
 import java.util.Scanner;
+
+import static java.awt.Color.black;
+import static java.awt.Color.white;
 
 public class Main {
 
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("MENU--");
-        System.out.println("1.burger---$5");
-        System.out.println("2.Tenders---$6");
-        System.out.println("3.Chicken Burrito---$7");
-        System.out.println("4.chicken strips---$9");
+        System.out.println("---SMART PARKING SYSTEM---");
+        System.out.println("Pleae Enter Your Vehicle NUmber");
+        String vehicleNumber = sc.nextLine();
+        System.out.println("Please check your vehicle number  :" + "..." + vehicleNumber);
 
-        int choice = sc.nextInt();
-        double price = 0;
-        double discountPrice=0;
-        double taxPrice=0;
-        double Bill=0;
+        System.out.println("---Vehicle Type");
+        System.out.println("1.Car");
+        System.out.println("2.Bike");
+        System.out.println("3.Truck");
+        double vehicleType = sc.nextInt();
+        double cost = 0;
+        int hours = 0;
+        if (vehicleType == 1) {
+            cost = 2;
+            System.out.println("For 1 hour cost is :" + ".." + cost);
+            System.out.println("enter how many hours you want parking");
+            hours = sc.nextInt();
+            System.out.println("For the hours you entered is" + ".." + hours + "hours : " + cost * hours);
+        } else if (vehicleType == 2) {
+            cost = 4;
+            System.out.println("For 1 hour cost is :" + ".." + cost);
+            System.out.println("enter how many hours you want parking");
+            hours = sc.nextInt();
+            System.out.println("For the hours you entered  is" + ".." + hours + "hours : " + cost * hours);
 
-        switch (choice) {
-            case 1 -> price = 5;
-            case 2 -> price = 6;
-            case 3 -> price = 7;
-            case 4 -> price = 9;
-            default -> price = 0;
-        };
-        System.out.println("price is :"+"   " + price);
+        } else if (vehicleType == 3) {
+            cost = 6;
 
+            System.out.println("For 1 hour Cost is:" + ".." + cost);
+            System.out.println("enter how many hours you want parking");
+            hours = sc.nextInt();
+            System.out.println("For the hours you entered is" + ".." + hours + "hours : " + cost * hours);
 
-
-        System.out.println("----Discount");
-        System.out.println("1.Zero Discount");
-        System.out.println("2. $1 off");
-        System.out.println("3.10% off");
-        int discount=sc.nextInt();
-        if(discount==2)
-        {
-             discountPrice=price-1;
-
-        }else if(discount==3) {
-            discountPrice=price-(price*0.07);
+        } else {
+            System.out.println("Enter Valid vehicleType");
         }
-        System.out.println("Discounted price is :"+"   "+discountPrice);
+        System.out.println("\n===== QR CODE (SCAN INFO)===");
+        generateQRCode(vehicleNumber, vehicleType, cost, hours);
+        System.out.println("==========");
+        System.out.println("Thanks for using smart fee parking system");
 
-        System.out.println("---Choose Tax Type---");
-        System.out.println("1.tax is 5%");
-        System.out.println("2.Tax is 6%");
-        int tax=sc.nextInt();
-        if(tax==1)
-        {
-            taxPrice=price+(price*0.05);
-        }else if(tax==2)
-        {
-            taxPrice=price+(price*0.06);
-        }
-        System.out.println("Tax + discountprice is : "+"   "+taxPrice);
-        Bill=taxPrice;
-        System.out.println("Final Bill is :" +"  "+Bill);
-        System.out.println("----Membership---");
-        System.out.println("1.Membership is there");
-        System.out.println("2.Membership is not there");
-
-        int enter=sc.nextInt();
-        if (enter== 1
-        ) {
-
-
-            System.out.println("enter membershipID");
-
-
-            String membership=sc.next();
-
-            if(membership.length()==10){
-                System.out.println("valid membershipID");
-
-
-            }
-            else {
-                System.out.println("not a valid membesrhip");
-            }
-        }
-
-        else if(enter==2){
-            System.out.println("no memebrshipID");
-        }
-
-        System.out.println("----Print Receipt");
-        System.out.println("1.print paper receipt");
-        System.out.println("2.email receipt");
-        System.out.println("3.no receipt");
-        int receipt=sc.nextInt();
-        if(receipt==1){
-            System.out.println("Thanks For Visting Us: Come Again");
-        }
-        if(receipt==2) {
-            System.out.println("enter you email or phone");
-            System.out.println("1.Phone number");
-            System.out.println("2.Email");
-            int virtualReceipt = sc.nextInt();
-            if (virtualReceipt == 1) {
-                System.out.println("entyer phone number");
-                String phoneNumber = sc.next();
-                System.out.println("your receipt is sent to your phone number : "+"  "+phoneNumber);
-                if (phoneNumber.length() == 10) ;
-                {
-                    System.out.println("valid phone number");
-                    System.out.println(phoneNumber);
+    }
+        public static void generateQRCode (String vehicleNumber,double vehicleType, double cost, int hours){
+           String black="\u001B[40m  \u001B[0m";
+           String white="  \u001B[47m  \u001B[0m";
+            String data = vehicleNumber + "|" + vehicleType + "|" + cost + "|" + hours;
+            for (int i = 0; i < data.length(); i++) {
+                int code = data.charAt(i);
+                for (int bit = 0; bit < 8; bit++) {
+                    if ((code & (1 << bit)) != 0) {
+                        System.out.print(black);
+                    } else {
+                        System.out.print(white);
+                    }
                 }
-            } else {
-                System.out.println("invalid number");
+                System.out.println();
             }
+        }
 
-            if(virtualReceipt==2) {
-                System.out.println("enter email");
-                String email = sc.next();
-                System.out.println("your recipt is emailed to : "+"  " + email);
-                if (email.contains("@") && email.contains(".") && email.length() >= 5) {
-                    System.out.println("valid email");
-                } else {
-                    System.out.println("Invalid Email");
-                }
-
-            }else if (receipt==3)
-            {
-                System.out.println("no receipt entered");
-            }
-        }}
-
-}
-
-
-
-
-
+    }
 
