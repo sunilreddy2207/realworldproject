@@ -1,10 +1,12 @@
 import java.util.Scanner;
 
 public class VehicleServices {
-    public int VehicleServices() {
+    int total = 0;
+    public int VehicleServices()
+    {
         int price = 0;
         String serviceType = "";
-        int total = 0;
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Nof of services you want");
 

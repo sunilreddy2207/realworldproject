@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class VehicleType {
     Scanner sc=new Scanner(System.in);
     int baseprice=0;
-    public void VehicleType() {
+    public int VehicleType() {
 
         System.out.println("=====PLEASE ENTER VEHICLE TYPE====");
         System.out.println("car");
@@ -27,5 +27,6 @@ public class VehicleType {
             System.out.println(baseprice);
         }
 System.out.println("VehicleType is:"+"   "+str+"  "+"baseprice is:"+"  "+baseprice);
+        return baseprice;
     }
 }
