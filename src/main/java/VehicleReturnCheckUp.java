@@ -6,7 +6,7 @@ public class VehicleReturnCheckUp {
 
 
         Scanner scanner=new Scanner(System.in);
-        public void VehicleReturnCheckup(){
+        public void returnCheckup(){
             System.out.println("===START RETURN CHECKUP===");
             String checkup[]={"Engine Checkup","BODY CHECKUP","INSIDE CHECKUP"};
             for(int i=0;i<checkup.length;i++){
