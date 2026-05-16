@@ -13,7 +13,7 @@ double tax=0.08;
     Scanner scanner = new Scanner(System.in);
 
 
-    public double VehicleAvailable(Object obj) {
+    public double available(Object obj) {
 
         System.out.println("====PLEASE CHOOSE VEHICLE TYPE");
         System.out.println("1.CAR");
