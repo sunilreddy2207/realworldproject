@@ -10,27 +10,27 @@ public class Main {
 double total=0;
             public static void main(String[] args) {
 
-CustomerDetails cd=new CustomerDetails();
+CustomerDetails cd=new details();
                 System.out.println("PLEASE ENTER YOU DETAILS");
                 cd.CustomerDetails();
                 VehicleAvailable va=new VehicleAvailable();
-                va.VehicleAvailable(va);
+                va.available(va);
 
                 VehiclePreCheckUp vp=new VehiclePreCheckUp();
-                vp.VehiclePreCheckup();
+                vp.preCheckup();
 Main main=new Main();
 main.billing();
 main.payment();
 main.receipt();
                 VehicleReturnCheckUp vr=new VehicleReturnCheckUp();
-                vr.VehicleReturnCheckup();
+                vr.returnCheckup();
 
 
         }
 
 public void billing(){
         VehicleAvailable va=new VehicleAvailable();
-        double finalTotal=va.VehicleAvailable(null);
+        double finalTotal=va.available(null);
         System.out.println("YOUR TOTAL IS:"+"  "+finalTotal);
 
     }
