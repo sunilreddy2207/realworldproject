@@ -5,11 +5,11 @@ public class Main {
     public static void main(String[] args) {
 
         VehicleType vehicletype = new VehicleType();
-        vehicletype.VehicleType();
+        vehicletype.type();
         VehicleInspection vehicleinspection = new VehicleInspection();
-        vehicleinspection.VehicleInspection();
+        vehicleinspection.inspection();
         VehicleServices vehicleservice = new VehicleServices();
-        vehicleservice.VehicleServices();
+        vehicleservice.services();
         Main m=new Main();
         m.payment();
         m.printReceipt();
