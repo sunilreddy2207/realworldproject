@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class VehicleServices {
     int total = 0;
-    public int VehicleServices()
+    public int services()
     {
         int price = 0;
         String serviceType = "";
