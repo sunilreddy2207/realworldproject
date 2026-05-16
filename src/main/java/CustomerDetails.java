@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class CustomerDetails {
 
 
-    public void CustomerDetails() {
+    public void details() {
         String name = "";
         String licensenumber = " ";
         int dateofbirth = 0;
