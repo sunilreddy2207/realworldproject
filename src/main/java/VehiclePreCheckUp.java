@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class VehiclePreCheckUp {
     Scanner scanner=new Scanner(System.in);
-    public void VehiclePreCheckup(){
+    public void preCheckup(){
         System.out.println("===START PRECHECKUP===");
         String checkup[]={"Engeine Checkup","BODY CHECKUP","INSIDE CHECKUP"};
         for(int i=0;i<checkup.length;i++){
