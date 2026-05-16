@@ -4,7 +4,7 @@ public class VehicleInspection {
 
     Scanner sc = new Scanner(System.in);
 
-    public void VehicleInspection() {
+    public void inspection() {
         System.out.println("====VehicleInspection====");
         int i = 1;
         for (i = 1; i <= 4; ) {
